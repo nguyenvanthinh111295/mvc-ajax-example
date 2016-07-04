@@ -124,15 +124,8 @@
 
         // hàm Insert và Update một record
         $("#btnSave").click(function (e) {
-            e.preventDefault();
 
-            var dataCreate = {
-                Name: $("#Name").val(),
-                Author: $("#Author").val(),
-                Price: $("#Price").val()
-            }
-
-            var dataUpdate = {
+            var data = {
                 Id: $("#Id").val(),
                 Name: $("#Name").val(),
                 Author: $("#Author").val(),
@@ -144,7 +137,7 @@
                     url: '/Book/Create/',
                     type: 'POST',
                     dataType: 'json',
-                    data: dataUpdate,
+                    data: data,
                     success: function (data) {
                         getBooks();
                         $("#bookModal").modal('hide');
@@ -160,7 +153,7 @@
                     url: '/Book/Update/',
                     type: 'POST',
                     dataType: 'json',
-                    data: dataUpdate,
+                    data: data,
                     success: function (data) {
                         getBooks();
                         isUpdatable = false;
